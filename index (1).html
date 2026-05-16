@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rangoli Sansar — The Sacred Art of India</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#FDF8F0; --warm-white:#FFFEF9; --petal-pink:#F4A5B0;
+  --deep-rose:#C75B7A; --lotus:#E8667A; --saffron:#F4882A;
+  --turmeric:#E8AC2D; --gold:#D4A017; --marigold:#F0C040;
+  --teal:#3AADA9; --deep-teal:#1E7D7A; --indigo:#4A4E8C;
+  --deep-indigo:#2D305F; --sage:#7B9E7B;
+  --text-primary:#2C1810; --text-secondary:#6B4C3B; --text-muted:#9B7B6B;
+  --border:rgba(212,160,23,0.22); --border-mid:rgba(212,160,23,0.45);
+  --shadow:rgba(44,24,16,0.10); --shadow-deep:rgba(44,24,16,0.22);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Crimson Pro',Georgia,serif;background:var(--cream);color:var(--text-primary);overflow-x:hidden;line-height:1.7;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,240,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--deep-rose);letter-spacing:.02em;}
+.nav-brand span{color:var(--saffron);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:.97rem;color:var(--text-secondary);text-decoration:none;letter-spacing:.04em;transition:color .2s;}
+.nav-links a:hover{color:var(--deep-rose);}
+.nav-cta{font-family:'Crimson Pro',serif;font-size:.9rem;font-weight:600;background:var(--deep-rose);color:white;padding:.42rem 1.2rem;border-radius:2rem;text-decoration:none;letter-spacing:.05em;transition:all .2s;}
+.nav-cta:hover{background:var(--lotus);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:64px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 65% at 50% 55%,rgba(244,165,176,.18) 0%,rgba(244,136,42,.07) 45%,transparent 75%);}
+.hero-canvas-wrap{position:absolute;inset:0;opacity:.14;}
+#hero-canvas{width:100%;height:100%;}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:800px;padding:2rem;}
+.hero-eyebrow{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--saffron);font-weight:600;margin-bottom:1.5rem;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,8vw,6rem);font-weight:700;line-height:1.04;color:var(--text-primary);margin-bottom:1.2rem;}
+.hero-title em{font-style:italic;color:var(--deep-rose);}
+.hero-sub{font-size:1.28rem;font-weight:300;font-style:italic;color:var(--text-secondary);line-height:1.78;max-width:540px;margin:0 auto 3rem;}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-hero{display:inline-flex;align-items:center;gap:.5rem;font-family:'Crimson Pro',serif;font-size:1rem;font-weight:600;letter-spacing:.06em;padding:.8rem 2.1rem;border-radius:2rem;border:none;cursor:pointer;text-decoration:none;transition:all .25s;}
+.btn-hero-p{background:var(--deep-rose);color:white;}
+.btn-hero-p:hover{background:var(--lotus);transform:translateY(-2px);box-shadow:0 10px 30px rgba(199,91,122,.32);}
+.btn-hero-s{background:transparent;color:var(--text-secondary);border:1.5px solid var(--border-mid);}
+.btn-hero-s:hover{border-color:var(--deep-rose);color:var(--deep-rose);}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);animation:scrollB 2.2s infinite;}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(212,160,23,.4),transparent);}
+@keyframes scrollB{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* STATS */
+.stats-bar{background:var(--text-primary);padding:1.8rem 2.5rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--marigold);line-height:1;}
+.stat-label{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,248,240,.5);margin-top:.3rem;}
+
+/* SECTIONS */
+section{padding:6rem 2.5rem;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-tag{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:.7rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:600;color:var(--text-primary);margin-bottom:1rem;line-height:1.18;}
+.section-desc{font-size:1.1rem;color:var(--text-secondary);max-width:580px;line-height:1.85;font-style:italic;}
+.ornament{text-align:center;color:var(--gold);letter-spacing:.6rem;font-size:1.4rem;opacity:.42;margin:2rem 0;}
+
+/* FILTER */
+.filter-bar{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem;}
+.filter-btn{font-family:'Crimson Pro',serif;font-size:.9rem;letter-spacing:.04em;padding:.38rem 1.1rem;border-radius:2rem;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .2s;}
+.filter-btn.active,.filter-btn:hover{background:var(--deep-rose);color:white;border-color:var(--deep-rose);}
+
+/* GALLERY */
+#gallery{background:var(--warm-white);}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:2rem;margin-top:2.5rem;}
+.pattern-card{background:var(--cream);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .32s;cursor:pointer;}
+.pattern-card:hover{transform:translateY(-7px);box-shadow:0 22px 55px var(--shadow-deep);border-color:rgba(212,160,23,.55);}
+.card-canvas-wrap{width:100%;aspect-ratio:1;background:var(--warm-white);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.card-canvas-wrap canvas{display:block;transition:transform .4s;}
+.pattern-card:hover .card-canvas-wrap canvas{transform:scale(1.06) rotate(4deg);}
+.card-body{padding:1.2rem 1.5rem 1.5rem;}
+.card-region{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--saffron);font-weight:600;margin-bottom:.25rem;}
+.card-name{font-family:'Playfair Display',serif;font-size:1.32rem;font-weight:600;color:var(--text-primary);margin-bottom:.4rem;}
+.card-desc{font-size:.95rem;color:var(--text-secondary);line-height:1.68;font-style:italic;}
+.card-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.9rem;}
+.tag{font-size:.7rem;padding:.22rem .7rem;border-radius:2rem;background:rgba(244,136,42,.1);color:var(--saffron);border:1px solid rgba(244,136,42,.2);letter-spacing:.04em;}
+
+/* SYMBOLISM */
+#symbolism{background:var(--cream);}
+.symbolism-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;margin-top:3rem;}
+.sym-card{border-radius:16px;padding:1.6rem 1.4rem;border:1px solid var(--border);transition:transform .22s,box-shadow .22s;}
+.sym-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px var(--shadow);}
+.sym-swatch{width:48px;height:48px;border-radius:50%;margin-bottom:1rem;}
+.sym-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:.3rem;}
+.sym-hindi{font-size:.8rem;color:var(--text-muted);letter-spacing:.08em;margin-bottom:.7rem;}
+.sym-meaning{font-size:.92rem;color:var(--text-secondary);line-height:1.7;font-style:italic;}
+
+/* TUTORIAL */
+#tutorial{background:var(--warm-white);}
+.tutorial-layout{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;margin-top:3rem;}
+.tutorial-canvas-area{background:var(--cream);border-radius:20px;border:1px solid var(--border);padding:2rem;display:flex;flex-direction:column;align-items:center;gap:1.2rem;}
+#tut-canvas{border-radius:12px;display:block;background:white;box-shadow:0 4px 20px rgba(44,24,16,.08);max-width:100%;height:auto;}
+.tut-progress{width:100%;display:flex;gap:.4rem;}
+.tut-dot{flex:1;height:3px;border-radius:2px;background:var(--border);transition:background .35s;}
+.tut-dot.done{background:var(--deep-rose);}
+.tut-step-item{display:flex;gap:1.1rem;padding:1.1rem 0;border-bottom:1px solid var(--border);cursor:pointer;transition:opacity .2s;}
+.tut-step-item:last-child{border-bottom:none;}
+.tut-step-item.active .step-num{background:var(--deep-rose);color:white;}
+.tut-step-item:not(.active){opacity:.52;}
+.tut-step-item:not(.active):hover{opacity:.78;}
+.step-num{min-width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--text-secondary);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;transition:background .2s,color .2s;flex-shrink:0;}
+.step-text h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;margin-bottom:.2rem;}
+.step-text p{font-size:.9rem;color:var(--text-secondary);font-style:italic;line-height:1.62;}
+.tut-nav{display:flex;gap:.7rem;margin-top:1.5rem;}
+
+/* MAKER */
+#maker{background:var(--cream);}
+.maker-layout{display:grid;grid-template-columns:1fr 360px;gap:3rem;align-items:start;margin-top:3rem;}
+.maker-canvas-area{background:var(--warm-white);border-radius:22px;border:1px solid var(--border);padding:2rem;display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
+#maker-canvas{border-radius:14px;display:block;background:white;box-shadow:0 6px 28px rgba(44,24,16,.09);max-width:100%;height:auto;}
+.maker-actions{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;}
+.btn{font-family:'Crimson Pro',serif;font-size:.93rem;font-weight:600;padding:.5rem 1.3rem;border-radius:2rem;border:1px solid var(--border);background:white;color:var(--text-secondary);cursor:pointer;transition:all .2s;letter-spacing:.04em;}
+.btn:hover{background:var(--deep-rose);color:white;border-color:var(--deep-rose);}
+.btn-primary{background:var(--deep-rose);color:white;border-color:var(--deep-rose);}
+.btn-primary:hover{background:var(--lotus);}
+.maker-controls{display:flex;flex-direction:column;gap:1.6rem;}
+.control-group label{display:block;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:.6rem;}
+.control-group select{width:100%;font-family:'Crimson Pro',serif;font-size:1rem;padding:.5rem .9rem;border-radius:10px;border:1px solid var(--border);background:white;color:var(--text-primary);outline:none;cursor:pointer;}
+.range-row{display:flex;align-items:center;gap:.8rem;}
+.range-row input[type=range]{flex:1;accent-color:var(--deep-rose);cursor:pointer;}
+.range-val{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--deep-rose);min-width:1.8rem;text-align:right;}
+.palette-row{display:flex;gap:.5rem;flex-wrap:wrap;}
+.pal-swatch{display:flex;gap:2px;cursor:pointer;border:2.5px solid transparent;border-radius:8px;padding:3px;transition:border-color .2s,transform .15s;}
+.pal-swatch:hover{transform:scale(1.08);}
+.pal-swatch.selected{border-color:var(--deep-rose);}
+.pal-chip{width:11px;height:24px;border-radius:3px;}
+.bg-dot{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid rgba(44,24,16,.12);transition:transform .15s,border-color .15s;}
+.bg-dot:hover{transform:scale(1.18);}
+.bg-dot.selected{border-color:var(--text-primary);transform:scale(1.15);}
+
+/* TRADITIONS */
+#traditions{background:var(--warm-white);}
+.traditions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(256px,1fr));gap:1.4rem;margin-top:3rem;}
+.tradition-card{padding:1.8rem;border-radius:18px;border:1px solid var(--border);background:var(--cream);transition:transform .22s,box-shadow .22s;}
+.tradition-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px var(--shadow);}
+.tradition-icon{font-size:2.4rem;margin-bottom:1rem;display:block;}
+.tradition-name{font-family:'Playfair Display',serif;font-size:1.28rem;font-weight:600;margin-bottom:.28rem;}
+.tradition-origin{font-size:.73rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.75rem;font-weight:600;}
+.tradition-desc{font-size:.93rem;line-height:1.73;color:var(--text-secondary);font-style:italic;}
+
+/* QUIZ */
+#quiz{background:var(--cream);}
+.quiz-box{max-width:680px;margin:3rem auto 0;background:var(--warm-white);border-radius:22px;border:1px solid var(--border);padding:3rem;box-shadow:0 8px 40px var(--shadow);}
+.quiz-progress-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:2.5rem;overflow:hidden;}
+.quiz-progress-fill{height:100%;background:var(--deep-rose);border-radius:2px;transition:width .4s ease;}
+.quiz-q-num{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:.8rem;}
+.quiz-question{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;line-height:1.3;margin-bottom:2rem;}
+.quiz-options{display:flex;flex-direction:column;gap:.75rem;}
+.quiz-option{font-family:'Crimson Pro',serif;font-size:1.05rem;padding:.9rem 1.4rem;border-radius:12px;border:1.5px solid var(--border);background:white;color:var(--text-primary);cursor:pointer;text-align:left;transition:all .2s;}
+.quiz-option:hover:not(.locked){border-color:var(--deep-rose);background:rgba(199,91,122,.05);}
+.quiz-option.correct{background:rgba(123,158,123,.15);border-color:var(--sage);color:#2E5E2E;}
+.quiz-option.wrong{background:rgba(199,91,122,.1);border-color:var(--deep-rose);color:var(--deep-rose);}
+.quiz-feedback{font-size:.98rem;font-style:italic;color:var(--text-secondary);margin-top:1.2rem;min-height:1.5rem;line-height:1.7;}
+.quiz-actions{margin-top:2rem;display:flex;justify-content:flex-end;}
+.score-num{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:var(--deep-rose);line-height:1;}
+.score-total{font-size:1.5rem;color:var(--text-muted);}
+.score-msg{font-size:1.15rem;font-style:italic;color:var(--text-secondary);margin-top:.8rem;line-height:1.7;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(44,24,16,.6);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:var(--warm-white);border-radius:22px;max-width:700px;width:100%;overflow:hidden;position:relative;transform:translateY(22px) scale(.98);transition:transform .3s;box-shadow:0 36px 90px rgba(44,24,16,.28);}
+.modal-overlay.open .modal{transform:translateY(0) scale(1);}
+.modal-canvas-area{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:white;}
+.modal-canvas-area canvas{max-height:320px;}
+.modal-body{padding:2rem 2.4rem 2.8rem;}
+.modal-region{font-size:.73rem;letter-spacing:.2em;text-transform:uppercase;color:var(--saffron);font-weight:600;}
+.modal-title{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;margin:.35rem 0 1rem;}
+.modal-desc{font-size:1.06rem;line-height:1.85;color:var(--text-secondary);font-style:italic;}
+.modal-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--cream);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all .2s;}
+.modal-close:hover{background:var(--deep-rose);color:white;border-color:var(--deep-rose);}
+
+/* FOOTER */
+footer{background:var(--text-primary);color:rgba(253,248,240,.58);padding:4rem 2.5rem 2.5rem;}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--marigold);margin-bottom:.8rem;}
+.footer-brand span{color:var(--petal-pink);}
+.footer-tagline{font-size:.95rem;font-style:italic;line-height:1.74;}
+.footer-col h4{font-family:'Playfair Display',serif;font-size:1rem;color:rgba(253,248,240,.85);margin-bottom:1rem;letter-spacing:.04em;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.footer-col ul a{color:rgba(253,248,240,.48);text-decoration:none;font-size:.9rem;transition:color .2s;}
+.footer-col ul a:hover{color:var(--marigold);}
+.footer-bottom{text-align:center;border-top:1px solid rgba(253,248,240,.1);margin-top:3rem;padding-top:1.5rem;font-size:.8rem;}
+
+@media(max-width:900px){.maker-layout,.tutorial-layout,.footer-inner{grid-template-columns:1fr;gap:2rem;}}
+@media(max-width:680px){.nav-links,.nav-cta{display:none;}.stats-bar{gap:2rem;}.gallery-grid,.traditions-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Rangoli <span>Sansar</span></div>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#symbolism">Colours</a></li>
+    <li><a href="#tutorial">Tutorial</a></li>
+    <li><a href="#maker">Studio</a></li>
+    <li><a href="#traditions">Traditions</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+  </ul>
+  <a href="#maker" class="nav-cta">Open Studio</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-canvas-wrap"><canvas id="hero-canvas"></canvas></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">रंगोली · चित्रकारी · कोलम · अल्पना</p>
+    <h1 class="hero-title">Where <em>Colour</em><br>Meets the <em>Sacred</em></h1>
+    <p class="hero-sub">Five thousand years of devotion expressed through symmetry and pigment — each dot a prayer, each petal a blessing drawn at the threshold.</p>
+    <div class="hero-buttons">
+      <a href="#gallery" class="btn-hero btn-hero-p">Explore Patterns ↓</a>
+      <a href="#maker" class="btn-hero btn-hero-s">Open Studio →</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>scroll</div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">5000+</div><div class="stat-label">Years of Tradition</div></div>
+  <div class="stat-item"><div class="stat-num">28</div><div class="stat-label">Regional Styles</div></div>
+  <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Drawn Patterns</div></div>
+  <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Sacred Colours</div></div>
+</div>
+
+<section id="gallery">
+  <div class="section-inner">
+    <p class="section-tag">Pattern Catalogue</p>
+    <h2 class="section-title">Sacred Geometries</h2>
+    <p class="section-desc">Each pattern carries centuries of devotion — drawn in rice flour, flower petals, or coloured powder to welcome prosperity and the divine presence.</p>
+    <div class="filter-bar" id="filter-bar"></div>
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </div>
+</section>
+
+<section id="symbolism">
+  <div class="section-inner">
+    <p class="section-tag">Sacred Chromatics</p>
+    <h2 class="section-title">The Language of Colour</h2>
+    <p class="section-desc">In Rangoli, every colour is chosen not for beauty alone — each hue carries a specific divine intent, blessing, or invocation.</p>
+    <div class="ornament">✦ ❖ ✦</div>
+    <div class="symbolism-grid" id="symbolism-grid"></div>
+  </div>
+</section>
+
+<section id="tutorial">
+  <div class="section-inner">
+    <p class="section-tag">Step-by-Step Guide</p>
+    <h2 class="section-title">How to Draw a Lotus Rangoli</h2>
+    <p class="section-desc">Follow the ancient method — begin with the sacred dot, build outward in rings, and let each layer bloom into the next.</p>
+    <div class="tutorial-layout">
+      <div class="tutorial-canvas-area">
+        <canvas id="tut-canvas" width="380" height="380"></canvas>
+        <div class="tut-progress" id="tut-progress"></div>
+        <div class="tut-nav">
+          <button class="btn" id="tut-prev">← Previous</button>
+          <button class="btn btn-primary" id="tut-next">Next Step →</button>
+        </div>
+      </div>
+      <div id="tut-steps"></div>
+    </div>
+  </div>
+</section>
+
+<section id="maker">
+  <div class="section-inner">
+    <p class="section-tag">Interactive Studio</p>
+    <h2 class="section-title">Design Your Rangoli</h2>
+    <p class="section-desc">Adjust symmetry, rings, colour, and pattern style. Animate it, randomise it, then download as a PNG.</p>
+    <div class="ornament">✦ ❖ ✦</div>
+    <div class="maker-layout">
+      <div class="maker-canvas-area">
+        <canvas id="maker-canvas" width="480" height="480"></canvas>
+        <div class="maker-actions">
+          <button class="btn btn-primary" id="btn-draw">✦ Generate</button>
+          <button class="btn" id="btn-animate">▶ Animate</button>
+          <button class="btn" id="btn-random">🎲 Random</button>
+          <button class="btn" id="btn-clear">✕ Clear</button>
+          <button class="btn" id="btn-save">⬇ Save PNG</button>
+        </div>
+      </div>
+      <div class="maker-controls">
+        <div class="control-group"><label>Base Pattern</label><select id="ctrl-pattern"></select></div>
+        <div class="control-group"><label>Symmetry (petals)</label><div class="range-row"><input type="range" id="ctrl-sym" min="4" max="16" value="8" step="2"><span class="range-val" id="sym-val">8</span></div></div>
+        <div class="control-group"><label>Rings / Layers</label><div class="range-row"><input type="range" id="ctrl-rings" min="2" max="8" value="5" step="1"><span class="range-val" id="rings-val">5</span></div></div>
+        <div class="control-group"><label>Detail Level</label><div class="range-row"><input type="range" id="ctrl-detail" min="1" max="5" value="3" step="1"><span class="range-val" id="detail-val">3</span></div></div>
+        <div class="control-group"><label>Colour Palette</label><div class="palette-row" id="palette-row"></div></div>
+        <div class="control-group"><label>Background</label><div class="palette-row" id="bg-row"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="traditions">
+  <div class="section-inner">
+    <p class="section-tag">Regional Heritage</p>
+    <h2 class="section-title">Traditions Across India</h2>
+    <p class="section-desc">From the dot-threading Kolam of Tamil Nadu to the bold Mandana of Rajasthan — every state holds its own sacred visual grammar.</p>
+    <div class="traditions-grid" id="traditions-grid"></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-inner">
+    <p class="section-tag">Test Your Knowledge</p>
+    <h2 class="section-title">Rangoli Wisdom Quiz</h2>
+    <p class="section-desc">Seven questions spanning history, technique, and symbolism. How deeply do you know the ancient art?</p>
+    <div class="quiz-box">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-fill" style="width:0%"></div></div>
+      <div id="quiz-body"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Rangoli <span>Sansar</span></div>
+      <p class="footer-tagline">A tribute to the sacred threshold arts of India — five thousand years of devotion made visible through geometry, pigment, and prayer.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#gallery">Pattern Gallery</a></li>
+        <li><a href="#symbolism">Colour Symbolism</a></li>
+        <li><a href="#tutorial">Step Tutorial</a></li>
+        <li><a href="#maker">Design Studio</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="#traditions">Regional Traditions</a></li>
+        <li><a href="#quiz">Knowledge Quiz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="ornament" style="font-size:.9rem;margin-bottom:.9rem;opacity:.3;">✦ ❖ ✦</div>
+    Crafted with reverence for India's living art traditions &nbsp;·&nbsp; Rangoli Sansar &copy; 2024 &nbsp;·&nbsp; All patterns drawn algorithmically — pure code, no images.
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-canvas-area"><canvas id="modal-canvas" width="600" height="338"></canvas></div>
+    <div class="modal-body">
+      <p class="modal-region" id="modal-region"></p>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-desc" id="modal-desc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════ JSON DATA ═══════ */
+const DATA={
+  patterns:[
+    {id:"lotus",name:"Lotus Mandala",region:"Pan India",category:"Mandala",tags:["Diwali","Navratri","Sacred"],fn:"lotus",colors:["#C75B7A","#F4882A","#E8AC2D","#3AADA9"],bg:"#FDF8F0",
+     desc:"The lotus bloom radiates from a sacred bindu. Each concentric ring of petals symbolises divine unfolding — purity rising from worldly mud into the light of pure consciousness. Drawn at every festival threshold."},
+    {id:"kolam",name:"Kolam Star",region:"Tamil Nadu",category:"Kolam",tags:["Daily","Rice Flour","Pulli"],fn:"kolam",colors:["#4A4E8C","#3AADA9","#F4A5B0","#E8AC2D"],bg:"#FFFEF9",
+     desc:"Each dawn, Tamil women draw continuous lines threading through a precise grid of pulli (dots). The unbroken thread is meditation — feeding small creatures and inviting Lakshmi across the threshold."},
+    {id:"peacock",name:"Peacock Dance",region:"Rajasthan",category:"Figurative",tags:["Teej","Festival","Rajasthani"],fn:"peacock",colors:["#1E7D7A","#4A4E8C","#F4882A","#D4A017"],bg:"#FDF8F0",
+     desc:"The royal peacock spreads its jewelled tail in radial symmetry. A symbol of Krishna and monsoon abundance, its feathers — each an 'eye of heaven' — cascade in indigo, gold, and emerald across festival courtyards."},
+    {id:"alpana",name:"Alpana Floral",region:"West Bengal",category:"Alpana",tags:["Lakshmi Puja","Bengali","White"],fn:"alpana",colors:["#F4A5B0","#E8667A","#D4A017","#7B9E7B"],bg:"#FFFEF9",
+     desc:"Painted in diluted rice-paste on mud floors before Lakshmi Puja. Each motif carries divine intent — the fish for prosperity, the conch for purity, the lotus for spiritual unfolding. White on red earth."},
+    {id:"muggu",name:"Muggu Pulli",region:"Andhra Pradesh",category:"Kolam",tags:["Daily","Dots","Geometric"],fn:"muggu",colors:["#C75B7A","#3AADA9","#F4882A","#4A4E8C"],bg:"#FDF8F0",
+     desc:"The Andhra tradition uses a precise dot-grid as invisible anchors. The artist's flour thread weaves around each dot without ever crossing — a living geometry of constraint and infinite flowing variety."},
+    {id:"chowk",name:"Chowkpurna",region:"Uttar Pradesh",category:"Chowk",tags:["Wedding","Square","North Indian"],fn:"chowk",colors:["#E8AC2D","#C75B7A","#4A4E8C","#7B9E7B"],bg:"#FFFEF9",
+     desc:"The sacred square drawn for weddings and Diwali. Nested squares and diamonds, each rotated slightly, create a mandala of divine order — the chowk as cosmic anchor, fixing blessings permanently within the home."}
+  ],
+  symbolism:[
+    {color:"#F4882A",name:"Saffron",hindi:"केसरी",meaning:"Courage, sacrifice, and the sacred flame. The colour of renunciation and the rising sun — painted at thresholds to invoke divine protection and the warrior spirit."},
+    {color:"#F4A5B0",name:"Pink",hindi:"गुलाबी",meaning:"Compassion, love, and the energy of the goddess. Associated with Shakti and the lotus — soft but holding the full creative power of the universe."},
+    {color:"#E8AC2D",name:"Yellow",hindi:"पीला",meaning:"Knowledge, wisdom, and Saraswati's blessings. Turmeric yellow is deeply auspicious at weddings — purifying the space and lifting the spirit toward learning."},
+    {color:"#FFFEF9",name:"White",hindi:"सफेद",meaning:"Purity, peace, and the moon's grace. Traditional Kolam is always white rice flour — the colour of the Goddess as rice herself, sustainer of all life."},
+    {color:"#C75B7A",name:"Red",hindi:"लाल",meaning:"Power, fertility, and the force of Shakti. The colour of sindoor and Durga — drawn to invoke strength and to mark the boundary of the sacred from the ordinary."},
+    {color:"#3AADA9",name:"Teal",hindi:"हरा नीला",meaning:"Renewal, nature, and Vishnu's eternal energy. The colour of the sacred ocean where gods move freely — healing, abundant, and without horizon."},
+    {color:"#4A4E8C",name:"Indigo",hindi:"नील",meaning:"The cosmic night, infinity, and the mystery of Krishna. Deep blue beyond blue — carrying the infinite depth of the universe and the ocean of devotion."},
+    {color:"#7B9E7B",name:"Green",hindi:"हरा",meaning:"Fertility, harvest, and new beginnings. The colour of the earth in monsoon — drawn to invite Lakshmi's abundance and the renewal of the living world."}
+  ],
+  tutorial:[
+    {title:"The Sacred Dot (Bindu)",desc:"Begin with a single dot at the centre. The bindu is the source — the still point from which all creation radiates. Place it with complete intention and stillness.",fn:"tut1"},
+    {title:"Ring of Eight Dots",desc:"Draw eight equidistant dots in a circle around the bindu. Eight is sacred — it represents the eight directions of the cosmos, anchoring the pattern in universal geometry.",fn:"tut2"},
+    {title:"First Petals Bloom",desc:"Join each outer dot to the centre with a curved arc, then sweep back to form a teardrop petal. Eight petals — the first lotus opens, simple and complete.",fn:"tut3"},
+    {title:"Staggered Second Layer",desc:"Between each petal, draw a second ring of larger petals, rotated 22.5°. The staggered offset creates the sacred illusion of infinite unfolding depth.",fn:"tut4"},
+    {title:"Dot Ring and Boundary",desc:"Encircle the petals with a ring of sixteen gold dots, then draw a fine outer arc. This boundary holds the energy and separates the sacred from the everyday.",fn:"tut5"},
+    {title:"Colour and Complete",desc:"Fill alternate petals in saffron and deep rose, dot ring in turmeric gold. The Lotus Mandala is complete — your threshold is prepared to receive the divine.",fn:"tut6"}
+  ],
+  traditions:[
+    {name:"Kolam",origin:"Tamil Nadu & Kerala",icon:"🌸",color:"#3AADA9",desc:"Drawn at dawn with rice flour before the home is entered. The continuous unbroken thread is meditation — and the flour feeds ants, embodying the principle of ahimsa."},
+    {name:"Alpana",origin:"West Bengal & Odisha",icon:"🐚",color:"#C75B7A",desc:"Painted in rice-paste on festival days. Fish, lotus, and conch are recurring sacred motifs in this flowing white-on-red-earth tradition of the east."},
+    {name:"Chowkpurna",origin:"Uttar Pradesh & Bihar",icon:"⬜",color:"#E8AC2D",desc:"A formal square pattern for weddings and pujas. The chowk is the sacred altar — framing a mandala of nested squares and diamonds to anchor divine energy."},
+    {name:"Aripana",origin:"Bihar (Mithila)",icon:"🦚",color:"#4A4E8C",desc:"Sister tradition to Madhubani painting — bold geometric forms and cultural symbols, drawn with dung-paste and filled with vivid natural mineral pigments."},
+    {name:"Muggu",origin:"Andhra & Telangana",icon:"✦",color:"#F4882A",desc:"Every design begins with a precise dot-grid. The flour thread weaves around dots without crossing — a geometry of constraint that yields infinite variety."},
+    {name:"Mandana",origin:"Rajasthan & M.P.",icon:"🌺",color:"#D4A017",desc:"Painted on freshly plastered walls with red ochre and white lime. Bold geometric shapes and regional deity motifs serve as household protection throughout the year."},
+    {name:"Ossa",origin:"Odisha",icon:"☀️",color:"#E8667A",desc:"Sacred patterns drawn during festivals like Raja and Kumar Purnima by unmarried girls — invoking Lakshminarayan for auspicious and loving marriages ahead."},
+    {name:"Rangavalli",origin:"Karnataka",icon:"🪷",color:"#7B9E7B",desc:"Karnataka's version blends geometric precision with floral exuberance. During Ugadi, entire streets are carpeted in brilliant pigment and fresh jasmine petals."}
+  ],
+  quiz:[
+    {q:"What does 'Rangoli' literally mean in Sanskrit?",opts:["Coloured rice","Rows of colours","Sacred floor","Flower offering"],ans:1,fact:"'Rangoli' derives from Sanskrit 'Rangavalli' — rows (valli) of colour (ranga). The art is also called Alpana, Kolam, Muggu, and Chowkpurna in different regions."},
+    {q:"In Tamil Nadu's Kolam tradition, what is a 'pulli'?",opts:["A type of flower","A rice-flour dot","A ceremonial grid","A sacred square"],ans:1,fact:"Pulli means 'dot' in Tamil. The entire Kolam is drawn by threading a continuous line through a grid of pulli — the dots are never crossed, only threaded between."},
+    {q:"The central dot of a Rangoli mandala is called?",opts:["Chakra","Bindu","Mudra","Yantra"],ans:1,fact:"The bindu (Sanskrit: point) is the origin of all creation. Every mandala radiates from this single still point — the silence from which sound and form emerge."},
+    {q:"Which festival most strongly celebrates Rangoli across India?",opts:["Holi","Diwali","Navratri","Pongal"],ans:1,fact:"Diwali sees the most widespread Rangoli tradition — every home draws patterns to welcome Lakshmi, whose feet are said to follow the beautiful path to the threshold."},
+    {q:"What traditional material is Kolam most often drawn with?",opts:["Flower petals","Coloured sand","White rice flour","Turmeric paste"],ans:2,fact:"Rice flour (arisi maavu) is traditional. Its impermanence is intentional — re-done each morning, making the practice a daily act of devotion, not permanent decoration."},
+    {q:"Petal counts in auspicious Rangoli typically follow which rule?",opts:["Always 5 petals","Always even numbers","Must equal 108","Must be prime"],ans:1,fact:"Even numbers are used for auspiciousness and symmetry: 8 (eight directions), 16, and 32 are most common. Odd petal counts are generally avoided in auspicious patterns."},
+    {q:"Alpana patterns of West Bengal are traditionally painted in?",opts:["Red and yellow","White on red earth","Blue and white","Saffron on white"],ans:1,fact:"Alpana is drawn in white rice-paste on a red-ochre mud floor — a striking contrast echoing the white-on-red aesthetic of Bengali ritual art seen throughout Durga Puja."}
+  ],
+  palettes:[
+    {name:"Festival",colors:["#C75B7A","#F4882A","#E8AC2D","#3AADA9","#4A4E8C","#7B9E7B"]},
+    {name:"Sunset",colors:["#E8667A","#F4882A","#E8AC2D","#D4A017","#C75B7A","#9B4E7B"]},
+    {name:"Ocean",colors:["#3AADA9","#1E7D7A","#4A4E8C","#2D305F","#7B9E7B","#5A8C9E"]},
+    {name:"Earth",colors:["#D4A017","#C8884A","#7B9E7B","#9B7B6B","#C75B7A","#E8AC2D"]},
+    {name:"Night",colors:["#4A4E8C","#2D305F","#C75B7A","#1E7D7A","#E8AC2D","#3AADA9"]}
+  ]
+};
+
+/* ═══════ DRAWING ENGINE ═══════ */
+const TAU=Math.PI*2;
+function clr(ctx,w,h,bg){ctx.clearRect(0,0,w,h);ctx.fillStyle=bg||"#FDF8F0";ctx.fillRect(0,0,w,h);}
+
+function lotus(ctx,cx,cy,r,C,rings,sym,detail){
+  const L=Math.min(rings,7);
+  for(let l=L;l>=1;l--){
+    const lr=r*(l/L),n=sym+(l%2===0?2:0),c=C[(L-l)%C.length];
+    for(let i=0;i<n;i++){
+      const a=(TAU/n)*i-Math.PI/2,px=cx+Math.cos(a)*lr*.55,py=cy+Math.sin(a)*lr*.55;
+      ctx.save();ctx.translate(px,py);ctx.rotate(a+Math.PI/2);
+      ctx.beginPath();ctx.ellipse(0,0,lr*.22,lr*.46,0,0,TAU);
+      ctx.fillStyle=c+(l===L?"88":"BB");ctx.fill();
+      ctx.strokeStyle=c;ctx.lineWidth=.8;ctx.stroke();ctx.restore();
+    }
+  }
+  if(detail>=2){for(let i=0;i<sym*2;i++){const a=(TAU/(sym*2))*i;ctx.beginPath();ctx.arc(cx+Math.cos(a)*r*.22,cy+Math.sin(a)*r*.22,r*.032,0,TAU);ctx.fillStyle=C[2];ctx.fill();}}
+  if(detail>=3){ctx.beginPath();ctx.arc(cx,cy,r*.95,0,TAU);ctx.strokeStyle=C[3]+"44";ctx.lineWidth=1.5;ctx.setLineDash([5,4]);ctx.stroke();ctx.setLineDash([]);}
+  const gc=ctx.createRadialGradient(cx,cy,0,cx,cy,r*.14);gc.addColorStop(0,C[1]);gc.addColorStop(1,C[0]);
+  ctx.beginPath();ctx.arc(cx,cy,r*.14,0,TAU);ctx.fillStyle=gc;ctx.fill();
+}
+
+function kolam(ctx,cx,cy,r,C,rings,sym,detail){
+  const n=Math.max(sym,6),L=Math.min(rings,6),step=r*1.8/(n+2);
+  for(let row=-(n+1);row<=(n+1);row++){for(let col=-(n+1);col<=(n+1);col++){
+    const x=cx+col*step+(row%2)*step*.5,y=cy+row*step;
+    if(Math.hypot(x-cx,y-cy)<r*.9){ctx.beginPath();ctx.arc(x,y,step*.13,0,TAU);ctx.fillStyle=C[0]+"88";ctx.fill();}
+  }}
+  for(let l=1;l<=L;l++){
+    const lr=r*(l/L)*.88,pts=n+l*2,c=C[l%C.length];
+    ctx.beginPath();
+    for(let i=0;i<=pts;i++){const a=(TAU/pts)*i-Math.PI/2,jit=detail>=3?Math.sin(i*3.7)*lr*.05:0;i===0?ctx.moveTo(cx+Math.cos(a)*(lr+jit),cy+Math.sin(a)*(lr+jit)):ctx.lineTo(cx+Math.cos(a)*(lr+jit),cy+Math.sin(a)*(lr+jit));}
+    ctx.strokeStyle=c+"BB";ctx.lineWidth=1.5;ctx.stroke();
+    if(detail>=2){for(let i=0;i<n;i++){const a1=(TAU/n)*i,a2=(TAU/n)*(i+Math.floor(n/3));ctx.beginPath();ctx.moveTo(cx+Math.cos(a1)*lr,cy+Math.sin(a1)*lr);ctx.lineTo(cx+Math.cos(a2)*lr*.58,cy+Math.sin(a2)*lr*.58);ctx.strokeStyle=c+"44";ctx.lineWidth=.8;ctx.stroke();}}
+  }
+  ctx.beginPath();ctx.arc(cx,cy,r*.09,0,TAU);ctx.fillStyle=C[0];ctx.fill();
+}
+
+function peacock(ctx,cx,cy,r,C,rings,sym,detail){
+  const fr=r*.84;
+  for(let i=0;i<sym;i++){
+    const a=(TAU/sym)*i-Math.PI/2,ex=cx+Math.cos(a)*fr,ey=cy+Math.sin(a)*fr;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(ex,ey);ctx.strokeStyle=C[0];ctx.lineWidth=1.8;ctx.stroke();
+    const eR=r*.11;
+    ctx.beginPath();ctx.ellipse(ex,ey,eR*1.3,eR,a+Math.PI/2,0,TAU);ctx.fillStyle=C[1];ctx.fill();
+    ctx.beginPath();ctx.arc(ex,ey,eR*.55,0,TAU);ctx.fillStyle=C[2];ctx.fill();
+    ctx.beginPath();ctx.arc(ex,ey,eR*.22,0,TAU);ctx.fillStyle=C[3];ctx.fill();
+    if(detail>=2){for(let b=1;b<=6;b++){const t=b/7,bx=cx+Math.cos(a)*fr*t,by=cy+Math.sin(a)*fr*t,bl=r*.07*(1-t*.4);for(let s=-1;s<=1;s+=2){ctx.beginPath();ctx.moveTo(bx,by);ctx.lineTo(bx+Math.cos(a+s*Math.PI/2.5)*bl,by+Math.sin(a+s*Math.PI/2.5)*bl);ctx.strokeStyle=C[(b+1)%C.length]+"77";ctx.lineWidth=.8;ctx.stroke();}}}
+  }
+  ctx.beginPath();ctx.arc(cx,cy,r*.17,0,TAU);ctx.fillStyle=C[0];ctx.fill();
+  ctx.beginPath();ctx.arc(cx,cy,r*.1,0,TAU);ctx.fillStyle=C[2];ctx.fill();
+}
+
+function alpana(ctx,cx,cy,r,C,rings,sym,detail){
+  const L=Math.min(rings,6);
+  for(let l=L;l>=1;l--){
+    const lr=r*(l/L),n=sym+(l%3)*4,c=C[l%C.length];
+    for(let i=0;i<n;i++){
+      const a=(TAU/n)*i,px=cx+Math.cos(a)*lr*.7,py=cy+Math.sin(a)*lr*.7;
+      ctx.save();ctx.translate(px,py);ctx.rotate(a+Math.PI/2);
+      const w=lr*.14,h=lr*.32;ctx.beginPath();ctx.moveTo(0,-h);ctx.bezierCurveTo(w,-h*.5,w*1.2,h*.1,0,h);ctx.bezierCurveTo(-w*1.2,h*.1,-w,-h*.5,0,-h);
+      ctx.fillStyle=c+"CC";ctx.fill();ctx.restore();
+    }
+    ctx.beginPath();ctx.arc(cx,cy,lr,0,TAU);ctx.strokeStyle=c+"33";ctx.lineWidth=.7;ctx.stroke();
+  }
+  if(detail>=3){const f=sym/2;for(let i=0;i<f;i++){const a=(TAU/f)*i+Math.PI/f,fx=cx+Math.cos(a)*r*.45,fy=cy+Math.sin(a)*r*.45;ctx.save();ctx.translate(fx,fy);ctx.rotate(a+Math.PI/2);ctx.beginPath();ctx.ellipse(0,0,r*.065,r*.03,0,0,TAU);ctx.fillStyle=C[3]+"AA";ctx.fill();ctx.restore();}}
+  ctx.beginPath();ctx.arc(cx,cy,r*.11,0,TAU);ctx.fillStyle=C[0];ctx.fill();
+}
+
+function muggu(ctx,cx,cy,r,C,rings,sym,detail){
+  const cols=sym+2,gw=r*1.6,sx=cx-gw/2,sy=cy-gw/2;
+  for(let row=0;row<cols;row++){for(let col=0;col<cols;col++){
+    const x=sx+col*(gw/(cols-1))+(row%2)*(gw/(cols-1)*.5),y=sy+row*(gw/(cols-1));
+    if(Math.hypot(x-cx,y-cy)<r*.9){ctx.beginPath();ctx.arc(x,y,r*.028,0,TAU);ctx.fillStyle=C[0];ctx.fill();}
+  }}
+  const L=Math.min(rings,5);
+  for(let p=0;p<L;p++){
+    const lr=r*((p+1)/L)*.82,pts=sym*2+p*4;
+    ctx.beginPath();for(let i=0;i<=pts;i++){const a=(TAU/pts)*i,wave=1+Math.sin(i*(2+p))*.08;i===0?ctx.moveTo(cx+Math.cos(a)*lr*wave,cy+Math.sin(a)*lr*wave):ctx.lineTo(cx+Math.cos(a)*lr*wave,cy+Math.sin(a)*lr*wave);}
+    ctx.strokeStyle=C[p%C.length]+"CC";ctx.lineWidth=1.6;ctx.stroke();
+  }
+  ctx.beginPath();ctx.arc(cx,cy,r*.1,0,TAU);ctx.fillStyle=C[1];ctx.fill();
+}
+
+function chowk(ctx,cx,cy,r,C,rings,sym,detail){
+  const L=Math.min(rings,5);
+  for(let l=1;l<=L;l++){
+    const lr=r*(l/L)*.92,c=C[(l-1)%C.length],rot=(l%2)*Math.PI/sym;
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(rot);ctx.beginPath();ctx.rect(-lr*.7,-lr*.7,lr*1.4,lr*1.4);ctx.strokeStyle=c+"AA";ctx.lineWidth=1.6;ctx.stroke();if(l%2===0){ctx.fillStyle=c+"12";ctx.fill();}ctx.restore();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(rot+Math.PI/4);ctx.beginPath();ctx.rect(-lr*.7,-lr*.7,lr*1.4,lr*1.4);ctx.strokeStyle=c+"55";ctx.lineWidth=.9;ctx.stroke();ctx.restore();
+    if(detail>=2){for(let i=0;i<4;i++){const a=(TAU/4)*i+Math.PI/4+rot;ctx.beginPath();ctx.arc(cx+Math.cos(a)*lr*.98,cy+Math.sin(a)*lr*.98,lr*.1,0,TAU);ctx.fillStyle=c+"BB";ctx.fill();}}
+  }
+  ctx.beginPath();ctx.arc(cx,cy,r*.13,0,TAU);ctx.fillStyle=C[0];ctx.fill();
+  ctx.beginPath();ctx.arc(cx,cy,r*.065,0,TAU);ctx.fillStyle=C[1];ctx.fill();
+}
+
+const drawFns={lotus,kolam,peacock,alpana,muggu,chowk};
+function draw(ctx,fn,cx,cy,r,C,rings,sym,detail,bg){clr(ctx,ctx.canvas.width,ctx.canvas.height,bg||"#FDF8F0");(drawFns[fn]||lotus)(ctx,cx,cy,r,C,rings,sym,detail);}
+
+/* ═══════ TUTORIAL STEP RENDERERS ═══════ */
+const TC=["#C75B7A","#F4882A","#E8AC2D","#3AADA9"];
+const tutFns={
+  tut1(ctx,cx,cy,r){
+    clr(ctx,380,380,"#FFFEF9");
+    ctx.beginPath();ctx.arc(cx,cy,r*.06,0,TAU);ctx.fillStyle=TC[0];ctx.fill();
+    ctx.fillStyle="#9B7B6B";ctx.font="italic 13px 'Crimson Pro',serif";ctx.textAlign="center";
+    ctx.fillText("Bindu — the sacred point of origin",cx,cy+r*.78);
+  },
+  tut2(ctx,cx,cy,r){
+    clr(ctx,380,380,"#FFFEF9");
+    ctx.beginPath();ctx.arc(cx,cy,r*.06,0,TAU);ctx.fillStyle=TC[0];ctx.fill();
+    for(let i=0;i<8;i++){const a=(TAU/8)*i;ctx.beginPath();ctx.arc(cx+Math.cos(a)*r*.36,cy+Math.sin(a)*r*.36,r*.04,0,TAU);ctx.fillStyle=TC[1];ctx.fill();}
+    ctx.beginPath();ctx.arc(cx,cy,r*.36,0,TAU);ctx.strokeStyle=TC[2]+"55";ctx.lineWidth=.8;ctx.setLineDash([3,4]);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle="#9B7B6B";ctx.font="italic 13px 'Crimson Pro',serif";ctx.textAlign="center";ctx.fillText("8 dots — the 8 directions of the cosmos",cx,cy+r*.78);
+  },
+  tut3(ctx,cx,cy,r){
+    clr(ctx,380,380,"#FFFEF9");
+    ctx.beginPath();ctx.arc(cx,cy,r*.06,0,TAU);ctx.fillStyle=TC[0];ctx.fill();
+    for(let i=0;i<8;i++){const a=(TAU/8)*i;ctx.save();ctx.translate(cx+Math.cos(a)*r*.36,cy+Math.sin(a)*r*.36);ctx.rotate(a+Math.PI/2);ctx.beginPath();ctx.ellipse(0,0,r*.1,r*.27,0,0,TAU);ctx.fillStyle=TC[0]+"99";ctx.fill();ctx.strokeStyle=TC[0];ctx.lineWidth=.8;ctx.stroke();ctx.restore();}
+    ctx.fillStyle="#9B7B6B";ctx.font="italic 13px 'Crimson Pro',serif";ctx.textAlign="center";ctx.fillText("First 8 petals bloom from the centre",cx,cy+r*.8);
+  },
+  tut4(ctx,cx,cy,r){
+    clr(ctx,380,380,"#FFFEF9");
+    ctx.beginPath();ctx.arc(cx,cy,r*.06,0,TAU);ctx.fillStyle=TC[0];ctx.fill();
+    for(let i=0;i<8;i++){const a=(TAU/8)*i;ctx.save();ctx.translate(cx+Math.cos(a)*r*.36,cy+Math.sin(a)*r*.36);ctx.rotate(a+Math.PI/2);ctx.beginPath();ctx.ellipse(0,0,r*.1,r*.27,0,0,TAU);ctx.fillStyle=TC[0]+"BB";ctx.fill();ctx.restore();}
+    for(let i=0;i<8;i++){const a=(TAU/8)*i+Math.PI/8;ctx.save();ctx.translate(cx+Math.cos(a)*r*.54,cy+Math.sin(a)*r*.54);ctx.rotate(a+Math.PI/2);ctx.beginPath();ctx.ellipse(0,0,r*.12,r*.32,0,0,TAU);ctx.fillStyle=TC[1]+"BB";ctx.fill();ctx.restore();}
+    ctx.fillStyle="#9B7B6B";ctx.font="italic 13px 'Crimson Pro',serif";ctx.textAlign="center";ctx.fillText("Second layer staggered by 22.5°",cx,cy+r*.86);
+  },
+  tut5(ctx,cx,cy,r){
+    clr(ctx,380,380,"#FFFEF9");
+    ctx.beginPath();ctx.arc(cx,cy,r*.06,0,TAU);ctx.fillStyle=TC[0];ctx.fill();
+    for(let i=0;i<8;i++){const a=(TAU/8)*i;ctx.save();ctx.translate(cx+Math.cos(a)*r*.36,cy+Math.sin(a)*r*.36);ctx.rotate(a+Math.PI/2);ctx.beginPath();ctx.ellipse(0,0,r*.1,r*.27,0,0,TAU);ctx.fillStyle=TC[0]+"BB";ctx.fill();ctx.restore();}
+    for(let i=0;i<8;i++){const a=(TAU/8)*i+Math.PI/8;ctx.save();ctx.translate(cx+Math.cos(a)*r*.54,cy+Math.sin(a)*r*.54);ctx.rotate(a+Math.PI/2);ctx.beginPath();ctx.ellipse(0,0,r*.12,r*.32,0,0,TAU);ctx.fillStyle=TC[1]+"BB";ctx.fill();ctx.restore();}
+    for(let i=0;i<16;i++){const a=(TAU/16)*i;ctx.beginPath();ctx.arc(cx+Math.cos(a)*r*.78,cy+Math.sin(a)*r*.78,r*.03,0,TAU);ctx.fillStyle=TC[2];ctx.fill();}
+    ctx.beginPath();ctx.arc(cx,cy,r*.84,0,TAU);ctx.strokeStyle=TC[3]+"55";ctx.lineWidth=1.4;ctx.setLineDash([5,5]);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle="#9B7B6B";ctx.font="italic 13px 'Crimson Pro',serif";ctx.textAlign="center";ctx.fillText("Dot ring and sacred outer boundary",cx,cy+r*.95);
+  },
+  tut6(ctx,cx,cy,r){
+    clr(ctx,380,380,"#FFFEF9");
+    lotus(ctx,cx,cy,r*.84,TC,5,8,4);
+    ctx.fillStyle="#9B7B6B";ctx.font="italic 13px 'Crimson Pro',serif";ctx.textAlign="center";ctx.fillText("Complete — your threshold awaits the divine",cx,cy+r*.96);
+  }
+};
+
+/* ═══════ HERO ═══════ */
+(function(){
+  const cv=document.getElementById('hero-canvas');
+  const rsz=()=>{cv.width=innerWidth;cv.height=innerHeight;};rsz();window.addEventListener('resize',rsz);
+  const ctx=cv.getContext('2d'),cols=["#C75B7A","#F4882A","#E8AC2D","#3AADA9","#4A4E8C"];
+  let t=0;
+  (function f(){ctx.clearRect(0,0,cv.width,cv.height);const cx=cv.width/2,cy=cv.height/2,r=Math.min(cx,cy)*.88;
+    for(let ring=7;ring>=1;ring--){const lr=r*(ring/7),n=10+ring*2;for(let i=0;i<n;i++){const a=(TAU/n)*i+t*.00025*ring,sc=Math.sin(t*.0018+ring+i)*.25+.75;ctx.save();ctx.translate(cx+Math.cos(a)*lr*.62,cy+Math.sin(a)*lr*.62);ctx.rotate(a+Math.PI/2+t*.0008);ctx.scale(sc,sc);ctx.beginPath();ctx.ellipse(0,0,lr*.09,lr*.24,0,0,TAU);ctx.fillStyle=cols[(ring+i)%cols.length]+"1A";ctx.fill();ctx.restore();}}
+  t++;requestAnimationFrame(f);})();
+})();
+
+/* ═══════ GALLERY ═══════ */
+(function(){
+  const grid=document.getElementById('gallery-grid'),fb=document.getElementById('filter-bar');
+  const cats=['All',...new Set(DATA.patterns.map(p=>p.category))];
+  let active='All';
+  cats.forEach(cat=>{const btn=document.createElement('button');btn.className='filter-btn'+(cat==='All'?' active':'');btn.textContent=cat;btn.onclick=()=>{active=cat;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();};fb.appendChild(btn);});
+  function render(){
+    grid.innerHTML='';
+    (active==='All'?DATA.patterns:DATA.patterns.filter(p=>p.category===active)).forEach((p,i)=>{
+      const card=document.createElement('div');card.className='pattern-card';
+      card.innerHTML=`<div class="card-canvas-wrap"><canvas width="320" height="320"></canvas></div><div class="card-body"><p class="card-region">${p.region}</p><h3 class="card-name">${p.name}</h3><p class="card-desc">${p.desc.substring(0,115)}…</p><div class="card-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>`;
+      card.onclick=()=>openModal(p);grid.appendChild(card);
+      setTimeout(()=>draw(card.querySelector('canvas').getContext('2d'),p.fn,160,160,130,p.colors,5,8,3,p.bg),i*55);
+    });
+  }
+  render();
+})();
+
+/* ═══════ MODAL ═══════ */
+function openModal(p){
+  document.getElementById('modal-region').textContent=p.region;
+  document.getElementById('modal-title').textContent=p.name;
+  document.getElementById('modal-desc').textContent=p.desc;
+  const cv=document.getElementById('modal-canvas');draw(cv.getContext('2d'),p.fn,300,169,130,p.colors,6,10,4,p.bg);
+  document.getElementById('modal-overlay').classList.add('open');
+}
+document.getElementById('modal-close').onclick=()=>document.getElementById('modal-overlay').classList.remove('open');
+document.getElementById('modal-overlay').onclick=e=>{if(e.target===e.currentTarget)e.currentTarget.classList.remove('open');};
+
+/* ═══════ SYMBOLISM ═══════ */
+(function(){
+  const grid=document.getElementById('symbolism-grid');
+  DATA.symbolism.forEach(s=>{
+    const card=document.createElement('div');card.className='sym-card';
+    card.style.background=s.color==='#FFFEF9'?'rgba(240,235,225,0.55)':`${s.color}15`;
+    card.innerHTML=`<div class="sym-swatch" style="background:${s.color};border:1.5px solid rgba(44,24,16,.12)"></div><div class="sym-name">${s.name}</div><div class="sym-hindi">${s.hindi}</div><p class="sym-meaning">${s.meaning}</p>`;
+    grid.appendChild(card);
+  });
+})();
+
+/* ═══════ TUTORIAL ═══════ */
+(function(){
+  const cv=document.getElementById('tut-canvas'),ctx=cv.getContext('2d');
+  const stEl=document.getElementById('tut-steps'),prEl=document.getElementById('tut-progress');
+  let step=0;const n=DATA.tutorial.length;
+  DATA.tutorial.forEach(()=>{const d=document.createElement('div');d.className='tut-dot';prEl.appendChild(d);});
+  DATA.tutorial.forEach((s,i)=>{
+    const el=document.createElement('div');el.className='tut-step-item'+(i===0?' active':'');
+    el.innerHTML=`<div class="step-num">${i+1}</div><div class="step-text"><h4>${s.title}</h4><p>${s.desc}</p></div>`;
+    el.onclick=()=>{step=i;render();};stEl.appendChild(el);
+  });
+  function render(){
+    document.querySelectorAll('.tut-step-item').forEach((el,i)=>el.classList.toggle('active',i===step));
+    document.querySelectorAll('.tut-dot').forEach((d,i)=>d.classList.toggle('done',i<=step));
+    (tutFns[DATA.tutorial[step].fn]||tutFns.tut1)(ctx,190,190,150);
+    document.getElementById('tut-prev').disabled=step===0;
+    document.getElementById('tut-next').textContent=step===n-1?'🌸 Restart':'Next Step →';
+  }
+  render();
+  document.getElementById('tut-prev').onclick=()=>{if(step>0){step--;render();}};
+  document.getElementById('tut-next').onclick=()=>{step=step<n-1?step+1:0;render();};
+})();
+
+/* ═══════ MAKER ═══════ */
+(function(){
+  const cv=document.getElementById('maker-canvas'),ctx=cv.getContext('2d');
+  let aF=null,isAnim=false,curC=DATA.patterns[0].colors.slice(),curBg=DATA.patterns[0].bg;
+  const sel=document.getElementById('ctrl-pattern');
+  DATA.patterns.forEach(p=>{const o=document.createElement('option');o.value=`${p.fn}|${p.colors.join(',')}|${p.bg}`;o.textContent=p.name;sel.appendChild(o);});
+  const palRow=document.getElementById('palette-row');
+  DATA.palettes.forEach((pal,pi)=>{
+    const w=document.createElement('div');w.className='pal-swatch'+(pi===0?' selected':'');
+    pal.colors.slice(0,4).forEach(c=>{const ch=document.createElement('div');ch.className='pal-chip';ch.style.background=c;w.appendChild(ch);});
+    w.onclick=()=>{curC=pal.colors;document.querySelectorAll('.pal-swatch').forEach(x=>x.classList.remove('selected'));w.classList.add('selected');gen();};
+    palRow.appendChild(w);
+  });
+  const bgRow=document.getElementById('bg-row');
+  ['#FDF8F0','#FFFEF9','#EEE8E0','#E8F0E8','#EBE8F2','#FFFFFF'].forEach((c,i)=>{
+    const d=document.createElement('div');d.className='bg-dot'+(i===0?' selected':'');d.style.background=c;
+    d.onclick=()=>{curBg=c;document.querySelectorAll('.bg-dot').forEach(x=>x.classList.remove('selected'));d.classList.add('selected');gen();};
+    bgRow.appendChild(d);
+  });
+  ['sym','rings','detail'].forEach(id=>{const el=document.getElementById(`ctrl-${id}`),out=document.getElementById(`${id}-val`);el.oninput=()=>{out.textContent=el.value;gen();};});
+  sel.onchange=()=>{const p=sel.value.split('|');curC=p[1].split(',');curBg=p[2];gen();};
+  function gP(){const p=sel.value.split('|');return{fn:p[0],sym:+document.getElementById('ctrl-sym').value,rings:+document.getElementById('ctrl-rings').value,detail:+document.getElementById('ctrl-detail').value};}
+  function stopA(){if(aF){cancelAnimationFrame(aF);aF=null;}isAnim=false;document.getElementById('btn-animate').textContent='▶ Animate';}
+  function gen(){stopA();const{fn,sym,rings,detail}=gP();draw(ctx,fn,240,240,200,curC,rings,sym,detail,curBg);}
+  gen();
+  document.getElementById('btn-draw').onclick=gen;
+  document.getElementById('btn-animate').onclick=function(){
+    if(isAnim){stopA();gen();return;}
+    isAnim=true;this.textContent='⏸ Pause';let t=0;
+    (function anim(){const{fn,rings,detail}=gP(),sym=6+Math.round(Math.sin(t*.018)*3)*2;clr(ctx,480,480,curBg);(drawFns[fn]||lotus)(ctx,240,240,200,curC,rings,sym,detail);ctx.save();ctx.translate(240,240);ctx.rotate(t*.007);ctx.translate(-240,-240);(drawFns[fn]||lotus)(ctx,240,240,200,[...curC].reverse(),Math.max(2,rings-2),sym,1);ctx.restore();t++;aF=requestAnimationFrame(anim);})();
+  };
+  document.getElementById('btn-random').onclick=()=>{
+    const keys=Object.keys(drawFns),fn=keys[Math.floor(Math.random()*keys.length)];
+    const opt=[...sel.options].find(o=>o.value.startsWith(fn+'|'));if(opt)sel.value=opt.value;
+    curC=DATA.palettes[Math.floor(Math.random()*DATA.palettes.length)].colors;
+    document.getElementById('ctrl-sym').value=[4,6,8,10,12][Math.floor(Math.random()*5)];
+    document.getElementById('ctrl-rings').value=3+Math.floor(Math.random()*5);
+    document.getElementById('ctrl-detail').value=2+Math.floor(Math.random()*3);
+    ['sym','rings','detail'].forEach(id=>document.getElementById(`${id}-val`).textContent=document.getElementById(`ctrl-${id}`).value);
+    gen();
+  };
+  document.getElementById('btn-clear').onclick=()=>{stopA();clr(ctx,480,480,curBg);};
+  document.getElementById('btn-save').onclick=()=>{const a=document.createElement('a');a.download='rangoli.png';a.href=cv.toDataURL();a.click();};
+})();
+
+/* ═══════ TRADITIONS ═══════ */
+(function(){
+  const grid=document.getElementById('traditions-grid');
+  const alpha={"#3AADA9":"rgba(58,173,169,.09)","#C75B7A":"rgba(199,91,122,.09)","#E8AC2D":"rgba(232,172,45,.09)","#4A4E8C":"rgba(74,78,140,.09)","#F4882A":"rgba(244,136,42,.09)","#D4A017":"rgba(212,160,23,.09)","#E8667A":"rgba(232,102,122,.09)","#7B9E7B":"rgba(123,158,123,.09)"};
+  DATA.traditions.forEach(t=>{const card=document.createElement('div');card.className='tradition-card';card.style.background=alpha[t.color]||'var(--cream)';card.innerHTML=`<span class="tradition-icon">${t.icon}</span><h3 class="tradition-name">${t.name}</h3><p class="tradition-origin" style="color:${t.color}">${t.origin}</p><p class="tradition-desc">${t.desc}</p>`;grid.appendChild(card);});
+})();
+
+/* ═══════ QUIZ ═══════ */
+(function(){
+  const qs=DATA.quiz,body=document.getElementById('quiz-body'),fill=document.getElementById('quiz-fill');
+  let cur=0,score=0,locked=false;
+  function renderQ(){
+    if(cur>=qs.length){renderScore();return;}
+    fill.style.width=`${(cur/qs.length)*100}%`;
+    const q=qs[cur];
+    body.innerHTML=`<p class="quiz-q-num">Question ${cur+1} of ${qs.length}</p><h3 class="quiz-question">${q.q}</h3><div class="quiz-options">${q.opts.map((o,i)=>`<button class="quiz-option" data-i="${i}">${o}</button>`).join('')}</div><p class="quiz-feedback" id="qfb"></p><div class="quiz-actions"><button class="btn btn-primary" id="qnext" style="display:none">Next Question →</button></div>`;
+    locked=false;
+    body.querySelectorAll('.quiz-option').forEach(btn=>{btn.onclick=function(){if(locked)return;locked=true;const idx=+this.dataset.i;if(idx===q.ans){score++;this.classList.add('correct');document.getElementById('qfb').textContent=`✓ Correct! ${q.fact}`;}else{this.classList.add('wrong');body.querySelectorAll('.quiz-option')[q.ans].classList.add('correct');document.getElementById('qfb').textContent=`Not quite. ${q.fact}`;}body.querySelectorAll('.quiz-option').forEach(b=>b.classList.add('locked'));document.getElementById('qnext').style.display='inline-flex';};});
+    document.getElementById('qnext').onclick=()=>{cur++;renderQ();};
+  }
+  function renderScore(){
+    fill.style.width='100%';
+    const pct=Math.round(score/qs.length*100);
+    const msg=pct>=90?"A true Rangoli scholar — you carry the wisdom of the ancients!":pct>=75?"Excellent! You hold genuine knowledge of this sacred art.":pct>=50?"A good foundation. The patterns are beginning to speak to you.":"A fresh beginning — the art of Rangoli awaits your devotion.";
+    body.innerHTML=`<div style="text-align:center;padding:1rem 0"><div class="score-num">${score}<span class="score-total">/${qs.length}</span></div><p class="score-msg">${msg}</p><div style="margin-top:2rem"><button class="btn btn-primary" id="qrestart">Try Again ↺</button></div></div>`;
+    document.getElementById('qrestart').onclick=()=>{cur=0;score=0;renderQ();};
+  }
+  renderQ();
+})();
+</script>
+</body>
+</html>
